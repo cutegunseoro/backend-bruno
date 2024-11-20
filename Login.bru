@@ -1,0 +1,16 @@
+meta {
+  name: Login
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{address}}/members/login
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  loginId: test
+  password: test
+}
