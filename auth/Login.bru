@@ -1,0 +1,53 @@
+meta {
+  name: Login
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{address}}/auth/login
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  loginId: test
+  password: test
+}
+
+docs {
+  # Request
+  
+  ## Body
+  
+  ```JSON
+  {
+  	"loginId": "ssafy"
+  	"password": "ssafy"
+  }
+  ```
+  
+  # Response
+  
+  ## Body
+  
+  ### 200 OK
+  
+  ```JSON
+  {
+    "accessToken": "~~~",
+    "member": {
+      "publicId": "testPublic",
+      "displayName": null,
+      "bio": null
+    }
+  }
+  ```
+  
+  ### 400 Bad Request
+  
+  ```JSON
+  null
+  ```
+  
+}
