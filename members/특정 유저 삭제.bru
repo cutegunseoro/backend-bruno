@@ -1,0 +1,19 @@
+meta {
+  name: 특정 유저 삭제
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{address}}/members/:publicId
+  body: none
+  auth: none
+}
+
+params:path {
+  publicId: testPublic
+}
+
+docs {
+  WIP
+}

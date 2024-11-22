@@ -1,0 +1,43 @@
+meta {
+  name: 영상 파일 업로드
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{address}}/videos/upload
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  file: @file(C:\Users\SSAFY\Downloads\sample-5s.mp4)
+}
+
+docs {
+  # Request
+  
+  ## Body
+  
+  ```JSON
+  {
+    "file": 실제 파일
+  }
+  ```
+  
+  # Response
+  
+  ## Body
+  
+  ### 200 OK
+  
+  ```JSON
+  {
+    "filePath": "019352a5-47b9-75d7-a074-0a309026a84c.mp4"
+  }
+  ```
+  
+  ### 400 Bad Request
+  
+  
+}

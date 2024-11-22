@@ -1,0 +1,31 @@
+meta {
+  name: 특정 유저의 정보
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{address}}/members/:publicId
+  body: none
+  auth: none
+}
+
+params:path {
+  publicId: testPublic
+}
+
+docs {
+  # Response
+  
+  ## 200 OK
+  
+  ```JSON
+  {
+    "memberInfo": {
+      "publicId": "testpublic",
+      "displayName": null,
+      "bio": null
+    }
+  }
+  ```
+}

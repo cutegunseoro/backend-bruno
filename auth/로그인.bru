@@ -1,0 +1,67 @@
+meta {
+  name: 로그인
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{address}}/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "loginId": "test",
+    "password": "test"
+  }
+}
+
+body:form-urlencoded {
+  loginId: test
+  password: test
+}
+
+script:post-response {
+  const token = res.body.accessToken; // Adjust this based on your response structure
+  if (token) {
+    bru.setEnvVar("access_token", token);
+  }
+}
+
+docs {
+  # Request
+  
+  ## Body
+  
+  ```JSON
+  {
+  	"loginId": "ssafy"
+  	"password": "ssafy"
+  }
+  ```
+  
+  # Response
+  
+  ## Body
+  
+  ### 200 OK
+  
+  ```JSON
+  {
+    "accessToken": "~~~",
+    "memberInfo": {
+      "publicId": "testPublic",
+      "displayName": null,
+      "bio": null
+    }
+  }
+  ```
+  
+  ### 400 Bad Request
+  
+  ```JSON
+  null
+  ```
+  
+}

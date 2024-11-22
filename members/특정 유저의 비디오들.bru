@@ -1,0 +1,39 @@
+meta {
+  name: 특정 유저의 비디오들
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{address}}/members/:publicId/videos
+  body: none
+  auth: none
+}
+
+params:path {
+  publicId: testPublic
+}
+
+docs {
+  # Response
+  
+  ## 200 OK
+  
+  ```JSON
+  {
+    "videos": [
+      {
+        "videoId": 3,
+        "publicId": "testpublic",
+        "travelId": null,
+        "coordinates": "POINT(10 10)",
+        "videoUrl": "01935234-4a53-7d14-9c09-2bc902fb9304.mp4",
+        "thumbnailUrl": null,
+        "title": "",
+        "description": null,
+        "createdAt": null
+      }
+    ]
+  }
+  ```
+}

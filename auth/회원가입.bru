@@ -1,0 +1,60 @@
+meta {
+  name: 회원가입
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{address}}/auth/signup
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "loginId": "test2",
+    "password": "test2",
+    "publicId": "testpublic2"
+  }
+}
+
+body:form-urlencoded {
+  loginId: test
+  password: test
+  publicId: testPublic
+}
+
+docs {
+  # Request
+  
+  ## Body
+  
+  ```JSON
+  {
+  	"loginId": "gwonhong",
+  	"password": "ssafy",
+  	"publicId": "kirby"
+  }
+  ```
+  
+  # Response
+  
+  ## Body
+  
+  ### 200 OK
+  
+  ```JSON
+  {
+    "message": "success"
+  }
+  ```
+  
+  ### 400 Bad Request
+  
+  ```JSON
+  {
+    "message": "fail"
+  }
+  ```
+  
+}

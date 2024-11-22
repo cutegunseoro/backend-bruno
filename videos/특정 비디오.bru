@@ -1,0 +1,50 @@
+meta {
+  name: 특정 비디오
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{address}}/videos/:videoId
+  body: none
+  auth: none
+}
+
+params:path {
+  videoId: 1
+}
+
+docs {
+  # Request
+  
+  ## Body
+  
+  null
+  
+  # Response
+  
+  ## Body
+  
+  ### 200 OK
+  
+  ```JSON
+  {
+    "video": {
+      "videoId": 1,
+      "publicId": null,
+      "travelId": null,
+      "coordinates": "POINT(10 10)",
+      "videoUrl": "01935234-4a53-7d14-9c09-2bc902fb9304.mp4",
+      "thumbnailUrl": null,
+      "title": "",
+      "description": null,
+      "createdAt": null
+    }
+  }
+  ```
+  
+  ### 400 Bad Request
+  
+  null
+  
+}

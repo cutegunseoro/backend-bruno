@@ -1,0 +1,45 @@
+meta {
+  name: 영상 메타정보 업로드
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{address}}/videos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "coordinates": "POINT(10 10)",
+    "videoUrl": "01935234-4a53-7d14-9c09-2bc902fb9304.mp4",
+    "title": ""
+  }
+}
+
+docs {
+  # Request
+  
+  ## Body
+  
+  ```JSON
+  {
+    "coordinates": "POINT(10 10)",
+    "videoUrl": "01935234-4a53-7d14-9c09-2bc902fb9304.mp4",
+    "title": ""
+  }
+  ```
+  
+  # Response
+  
+  ## Body
+  
+  ### 200 OK
+  
+  null
+  
+  ### 400 Bad Request
+  
+  null
+}
