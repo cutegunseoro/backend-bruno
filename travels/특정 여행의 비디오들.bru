@@ -11,9 +11,29 @@ get {
 }
 
 params:path {
-  travelId: 
+  travelId: 1
 }
 
 docs {
-  WIP
+  # Response
+  
+  ## 200 OK
+  
+  ```JSON
+  {
+    "videos": [
+      {
+        "videoId": 1,
+        "publicId": "testpublic",
+        "travelId": 1,
+        "coordinates": "POINT(10 10)",
+        "videoUrl": "",
+        "thumbnailUrl": null,
+        "title": "",
+        "description": "",
+        "createdAt": null
+      }
+    ]
+  }
+  ```WIP
 }

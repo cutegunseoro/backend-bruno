@@ -1,17 +1,17 @@
 meta {
-  name: 특정 유저의 비디오들
+  name: 비디오 검색 (위치, 거리)
   type: http
-  seq: 3
+  seq: 4
 }
 
 get {
-  url: {{address}}/members/:publicId/videos
+  url: {{address}}/videos/search?coordinates=POINT(10 10)
   body: none
   auth: none
 }
 
-params:path {
-  publicId: testPublic
+params:query {
+  coordinates: POINT(10 10)
 }
 
 docs {
@@ -23,14 +23,14 @@ docs {
   {
     "videos": [
       {
-        "videoId": 3,
+        "videoId": 1,
         "publicId": "testpublic",
-        "travelId": null,
+        "travelId": 1,
         "coordinates": "POINT(10 10)",
-        "videoUrl": "01935234-4a53-7d14-9c09-2bc902fb9304.mp4",
+        "videoUrl": "",
         "thumbnailUrl": null,
         "title": "",
-        "description": null,
+        "description": "",
         "createdAt": null
       }
     ]
