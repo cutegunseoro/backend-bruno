@@ -1,0 +1,33 @@
+meta {
+  name: 푸시 알림 기기 등록
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{address}}/push-subscriptions
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "endpoint": "",
+    "p256dh": "",
+    "auth": ""
+  }
+}
+
+docs {
+  # Request
+  
+  ## Body
+  
+  ```JSON
+  {
+    "endpoint": "",
+    "p256dh": "",
+    "auth": ""
+  }
+  ```
+}
