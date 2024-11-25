@@ -1,0 +1,29 @@
+meta {
+  name: video upload test
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{upload_url}}
+  body: none
+  auth: none
+}
+
+script:pre-request {
+  req.headers.authorization = null;
+  
+  const fs = require('fs');
+  const path = require('path');
+  
+  const attachmentFilename = "file_example_WEBM_480_900KB.webm";
+  const attachmentPath = path.join(bru.cwd(), attachmentFilename);
+  const attachment = fs.readFileSync(attachmentPath);
+  const attachmentLength = attachment.length;
+  
+  req.setHeader("Content-Type", "application/octet-stream");
+  req.setHeader("Content-Disposition", `attachment; filename="${attachmentFilename}"`);
+  req.setHeader("Content-Length", attachmentLength);
+  
+  req.setBody(attachment);
+}

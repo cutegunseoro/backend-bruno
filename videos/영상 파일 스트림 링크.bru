@@ -1,0 +1,28 @@
+meta {
+  name: 영상 파일 스트림 링크
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{address}}/videos/:videoId/stream-url
+  body: none
+  auth: none
+}
+
+params:path {
+  videoId: 3
+}
+
+docs {
+  # Response
+  
+  ## 200 OK
+  
+  ```JSON
+  {
+    "contentType": "video/webm",
+    "preSignedUrl": "https://travlog-bucket.s3.ap-northeast-2.amazonaws.com/videos/019..."
+  }
+  ```
+}

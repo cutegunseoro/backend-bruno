@@ -1,0 +1,40 @@
+meta {
+  name: 영상 파일 업로드 링크
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{address}}/videos/upload-url?contentType=video/webm
+  body: none
+  auth: none
+}
+
+params:query {
+  contentType: video/webm
+}
+
+script:post-response {
+  const uploadUrl = res.body.preSignedUrl;
+  if (uploadUrl) {
+    bru.setEnvVar("upload_url", uploadUrl);
+  }
+}
+
+docs {
+  # Request
+  
+  ## Search Param
+  
+  - contentType: `video/mp4` or `video/webm`
+    - 업로드 하는 파일의 contentType 등을 통해 얻어오기. 거의 대부분 둘 중 하나일텐데 아닌 경우 그냥 업로드 거부.
+  
+  # Response
+  
+  ```JSON
+  {
+    "objectKey": "videos/01234-...",
+    "preSignedUrl": "https://travlog-bucket.s3.ap-northeast-2.amazonaws.com/01936311-4d..."
+  }
+  ```
+}
