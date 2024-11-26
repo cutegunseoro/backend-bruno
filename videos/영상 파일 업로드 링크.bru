@@ -19,6 +19,11 @@ script:post-response {
   if (uploadUrl) {
     bru.setEnvVar("upload_url", uploadUrl);
   }
+  
+  const objectKey = res.body.objectKey;
+  if(objectKey) {
+    bru.setEnvVar("object_key", objectKey);
+  }
 }
 
 docs {
