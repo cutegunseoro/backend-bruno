@@ -1,0 +1,30 @@
+meta {
+  name: 나의 정보
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{address}}/me
+  body: none
+  auth: none
+}
+
+docs {
+  # Response
+  
+  ## 200 OK
+  
+  ```JSON
+  {
+    "member": {
+      "publicId": "testpublic",
+      "displayName": null,
+      "bio": null,
+      "currentTravelId": null
+    }
+  }
+  ```
+  
+  `currentTravelId`가 null이면 현재 여행 중이지 않다는 뜻이며, 값이 있다면 해당 여행이 현재 진행 중인 여행이라는 뜻입니다.
+}
